@@ -2,7 +2,7 @@
 const { hostname } = require('os');
 const http = require('http');
 
-const message = 'Hello Cloud\n';
+const message = 'Hello Cloud via CodePipeline\n';
 const port = 8080;
 
 const server = http.createServer((req, res) => {
