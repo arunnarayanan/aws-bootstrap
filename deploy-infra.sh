@@ -12,6 +12,8 @@ CODEPIPELINE_BUCKET="$STACK_NAME-$REGION-codepipeline-$AWS_ACCOUNT_ID"
 
 CFN_BUCKET="$STACK_NAME-cfn-$AWS_ACCOUNT_ID"
 
+DOMAIN=arunplayground.link 
+
 # Generate a personal access token with repo and admin:repo_hook 
 # permissions from https://github.com/settings/tokens 
 GH_ACCESS_TOKEN=$(cat ~/.github/aws-bootstrap-access-token) 
@@ -60,6 +62,7 @@ aws cloudformation deploy \
 	--capabilities CAPABILITY_NAMED_IAM \
 	--parameter-overrides \
 	EC2InstanceType=$EC2_INSTANCE_TYPE \
+	Domain=$DOMAIN \
 	GitHubOwner=$GH_OWNER \
 	GitHubRepo=$GH_REPO \
 	GitHubBranch=$GH_BRANCH \
